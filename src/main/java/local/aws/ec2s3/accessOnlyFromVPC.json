@@ -1,0 +1,19 @@
+{
+   "Version": "2012-10-17",
+   "Id": "Policy1415115909153",
+   "Statement": [
+     {
+       "Sid": "Access-to-specific-VPC-only",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Effect": "Deny",
+       "Resource": ["arn:aws:s3:::cicd-s3bucket01",
+                    "arn:aws:s3:::cicd-s3bucket01/*"],
+       "Condition": {
+         "StringNotEquals": {
+           "aws:SourceVpc": "vpc-389c8d5f"
+         }
+       }
+     }
+   ]
+}
