@@ -5,6 +5,8 @@
  * Windows: C:\Users\<yourUserName>\.aws\credentials
  * Linux, macOS, Unix: ~/.aws/credentials
  *
+ * this will encrypt S3 bucket with a KMS key, keyId = "34c869ea-4444-44a9-bc9c-cb35c3aef86d"
+ *
  */
 package local.aws.ec2s3;
 
@@ -47,7 +49,7 @@ public class KMSEncryption {
 //			System.out.println(USAGE);
 //			System.exit(1);
 //		}
-//test002 cicd-s3bucket02 c:/aws/test.txt c:/aws/testPlan.txt 34c869ea-4444-44a9-bc9c-cb35c3aef86d
+
 		String objectName = "test003";
 		String bucketName = "cicd-s3bucket01";
 		String objectPath = "c:/aws/test.txt";
@@ -64,7 +66,6 @@ public class KMSEncryption {
 		s3.close();
 	}
 
-	// snippet-start:[s3.java2.kms.main]
 	// Encrypt data and place the encrypted data into an Amazon S3 bucket
 	public static void putEncryptData(S3Client s3,
 	                                  String objectName,

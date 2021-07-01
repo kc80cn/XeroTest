@@ -5,6 +5,8 @@
  * Windows: C:\Users\<yourUserName>\.aws\credentials
  * Linux, macOS, Unix: ~/.aws/credentials
  *
+ * this will create a S3 bucket only with bucket name "cicd-s3bucket01"
+ *
  */
 package local.aws.ec2s3;
 
@@ -58,7 +60,7 @@ public class CreateBucket {
 //			System.exit(1);
 //		}
 
-		String bucket_name = "cicd-s3bucket02";
+		String bucket_name = "cicd-s3bucket01";
 
 		System.out.format("\nCreating S3 bucket: %s\n", bucket_name);
 		Bucket b = createBucket(bucket_name);

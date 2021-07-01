@@ -5,6 +5,15 @@
  * Windows: C:\Users\<yourUserName>\.aws\credentials
  * Linux, macOS, Unix: ~/.aws/credentials
  *
+ *
+ * this will upload the S3 bucket policy file, policy file: accessOnlyFromVPC.json
+ * it will block the public access and only let one EC2 instance has Read & Write access
+ * to S3 bucket cicd-s3bucket03 and the other one has Read Only access
+ *
+ * the other option would be using aws cli to upload, which is much easier to do
+ *
+ * $ aws s3api put-bucket-policy --bucket cloud-1-$NAME --policy file://student-1-bucket.manual.json
+ *
  */
 package local.aws.ec2s3;
 
@@ -49,7 +58,6 @@ public class SetBucketPolicy {
 		s3.close();
 	}
 
-	// snippet-start:[s3.java2.set_bucket_policy.main]
 	public static void setPolicy(S3Client s3, String bucketName, String policyText) {
 
 		System.out.println("Setting policy:");

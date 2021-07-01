@@ -5,6 +5,13 @@
  * Windows: C:\Users\<yourUserName>\.aws\credentials
  * Linux, macOS, Unix: ~/.aws/credentials
  *
+ *
+ * this will create 2 x Linux EC2 instance, tag names: Linux01 & Linux02
+ * open ssh port 22 to the public with SecurityGroup Name "CICDSecurityGroup",
+ * load ssh key with KeyPair Name "cicdssh"
+ *
+ *
+ *
  */
 package local.aws.ec2s3;
 
