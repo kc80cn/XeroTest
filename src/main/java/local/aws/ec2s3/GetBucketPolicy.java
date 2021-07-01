@@ -24,12 +24,12 @@ public class GetBucketPolicy {
 			"Where:\n" +
 			"    bucketName - the Amazon S3 bucket to get the policy from.\n\n" ;
 
-		if (args.length != 1) {
-			System.out.println(USAGE);
-			System.exit(1);
-		}
+//		if (args.length != 1) {
+//			System.out.println(USAGE);
+//			System.exit(1);
+//		}
 
-		String bucketName = args[0];
+		String bucketName = "cicd-s3bucket01";
 		System.out.format("Getting policy for bucket: \"%s\"\n\n", bucketName);
 		Region region = Region.AP_SOUTHEAST_2;
 		S3Client s3 = S3Client.builder()

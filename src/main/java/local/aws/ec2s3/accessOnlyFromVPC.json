@@ -1,19 +1,49 @@
 {
-   "Version": "2012-10-17",
-   "Id": "Policy1415115909153",
-   "Statement": [
-     {
-       "Sid": "Access-to-specific-VPC-only",
-       "Principal": "*",
-       "Action": "s3:*",
-       "Effect": "Deny",
-       "Resource": ["arn:aws:s3:::cicd-s3bucket01",
-                    "arn:aws:s3:::cicd-s3bucket01/*"],
-       "Condition": {
-         "StringNotEquals": {
-           "aws:SourceVpc": "vpc-389c8d5f"
-         }
-       }
-     }
-   ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "xeroReadWrite",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::785957977895:role/xeroReadWrite"
+      },
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl"
+      ],
+      "Resource": [
+        "arn:aws:s3:::cicd-s3bucket03",
+        "arn:aws:s3:::cicd-s3bucket03/*"
+      ]
+    },
+    {
+      "Sid": "xeroReadOnly",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::785957977895:role/xeroReadOnly"
+      },
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::cicd-s3bucket03"
+    },
+    {
+      "Effect": "Deny",
+      "Principal": {
+        "AWS": "arn:aws:iam::785957977895:role/xeroReadOnly"
+      },
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl"
+      ],
+      "Resource": "arn:aws:s3:::cicd-s3bucket03/*"
+    }
+  ]
 }

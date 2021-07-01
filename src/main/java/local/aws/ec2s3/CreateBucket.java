@@ -53,12 +53,12 @@ public class CreateBucket {
 			"  bucketname - the name of the bucket to create.\n\n" +
 			"The bucket name must be unique, or an error will result.\n";
 
-		if (args.length < 1) {
-			System.out.println(USAGE);
-			System.exit(1);
-		}
+//		if (args.length < 1) {
+//			System.out.println(USAGE);
+//			System.exit(1);
+//		}
 
-		String bucket_name = args[0];
+		String bucket_name = "cicd-s3bucket02";
 
 		System.out.format("\nCreating S3 bucket: %s\n", bucket_name);
 		Bucket b = createBucket(bucket_name);

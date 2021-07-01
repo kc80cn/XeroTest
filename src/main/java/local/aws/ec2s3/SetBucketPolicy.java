@@ -31,13 +31,13 @@ public class SetBucketPolicy {
 			"    bucketName - the Amazon S3 bucket to set the policy on.\n" +
 			"    polFile - a JSON file containing the policy (see the Amazon S3 Readme for an example). \n" ;
 
-		if (args.length != 2) {
-			System.out.println(USAGE);
-			System.exit(1);
-		}
+//		if (args.length != 2) {
+//			System.out.println(USAGE);
+//			System.exit(1);
+//		}
 
-		String bucketName = args[0];
-		String polFile = args[1];
+		String bucketName = "cicd-s3bucket03";
+		String polFile = "accessOnlyFromVPC.json";
 		String policyText = getBucketPolicyFromFile(polFile);
 
 		Region region = Region.AP_SOUTHEAST_2;

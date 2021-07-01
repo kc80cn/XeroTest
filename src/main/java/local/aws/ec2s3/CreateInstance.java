@@ -27,13 +27,13 @@ public class CreateInstance {
 			"    name - an instance name value that you can obtain from the AWS Console (for example, ami-xxxxxx5c8b987b1a0). \n\n" +
 			"    amiId - an Amazon Machine Image (AMI) value that you can obtain from the AWS Console (for example, i-xxxxxx2734106d0ab). \n\n" ;
 
-		if (args.length != 2) {
-			System.out.println(USAGE);
-			System.exit(1);
-		}
+//		if (args.length != 2) {
+//			System.out.println(USAGE);
+//			System.exit(1);
+//		}
 
-		String name = args[0];
-		String amiId = args[1];
+		String name = "linux02"; //
+		String amiId = "ami-078d5c7afa60d8d1b";
 
 		Region region = Region.AP_SOUTHEAST_2;
 		Ec2Client ec2 = Ec2Client.builder()

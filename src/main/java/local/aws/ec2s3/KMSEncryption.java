@@ -43,16 +43,16 @@ public class KMSEncryption {
 			"    outPath - the path where a text file is written to after it's decrypted (for example, C:/AWS/testPlain.txt).\n" +
 			"    keyId - the id of the AWS KMS key to use to encrpt/decrypt the data. You can obtain the key ID value from the AWS Management Console.\n";
 
-		if (args.length != 5) {
-			System.out.println(USAGE);
-			System.exit(1);
-		}
-
-		String objectName = args[0];
-		String bucketName = args[1];
-		String objectPath = args[2];
-		String outPath = args[3];
-		String keyId = args[4];
+//		if (args.length != 5) {
+//			System.out.println(USAGE);
+//			System.exit(1);
+//		}
+//test002 cicd-s3bucket02 c:/aws/test.txt c:/aws/testPlan.txt 34c869ea-4444-44a9-bc9c-cb35c3aef86d
+		String objectName = "test003";
+		String bucketName = "cicd-s3bucket01";
+		String objectPath = "c:/aws/test.txt";
+		String outPath = "c:/aws/testPlan.txt";
+		String keyId = "34c869ea-4444-44a9-bc9c-cb35c3aef86d";
 
 		Region region = Region.AP_SOUTHEAST_2;
 		S3Client s3 = S3Client.builder()
